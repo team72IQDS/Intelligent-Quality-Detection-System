@@ -1,0 +1,14 @@
+path: /Users/shreyakuntumalla/Desktop/UTD21-25/semesters/Fall23/intelligent-quality-det/datasets/Cans.v1i.yolov8
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['metal-can']
+
+roboflow:
+  workspace: snapcycle
+  project: cans-yginc
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/snapcycle/cans-yginc/dataset/1
