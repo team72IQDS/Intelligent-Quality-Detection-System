@@ -1,0 +1,14 @@
+path: /Users/shreyakuntumalla/Desktop/UTD21-25/semesters/Fall23/Intelligent-Quality-Detection-System/cv-model/datasets/PLR.v6i.yolov8
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['Dent_Can', 'Lid_Open', 'Tin_Can']
+
+roboflow:
+  workspace: plrobot
+  project: plr-ee0xn
+  version: 6
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/plrobot/plr-ee0xn/dataset/6
