@@ -1,0 +1,25 @@
+.half-page-table {
+  height: 50vh !important; /* Set the height to take up half of the viewport height */
+}
+
+.evenly-spaced-table {
+  table-layout: fixed !important; /* Set table layout to fixed */
+  width: 100% !important; /* Expand table to full width of the container */
+}
+
+.evenly-spaced-cell {
+  width: 20% !important; /* Divide the table into 4 equal-width columns */
+  text-align: center !important; /* Center-align the text in cells */
+}
+
+.bold-text {
+  font-weight: bold !important; /* Make the text bold */
+}
+
+.green-text {
+  color: green !important; /* Set the text color for "Yes" to green */
+}
+
+.red-text {
+  color: red !important; /* Set the text color for "no" to red */
+}

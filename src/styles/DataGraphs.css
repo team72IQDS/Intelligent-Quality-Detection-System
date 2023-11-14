@@ -1,0 +1,10 @@
+.data-graphs {
+    display: flex;
+    justify-content: space-between; /* Space evenly between graphs */
+    align-items: center; /* Vertically center graphs */
+  }
+  
+  .graph {
+    flex: 1;
+    margin: 0 5px; /* Add horizontal margin for spacing */
+  }
