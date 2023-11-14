@@ -4,10 +4,34 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import DataTable from "../components/DataTable";
 import DataGraphs from "../components/DataGraphs";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ data }: { data: any }) {
+export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        // Fetch data from the serverless function
+        const response = await fetch("/api/data");
+        const dat = await response.json();
+        console.log(dat);
+
+        setData(dat);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        return {
+          props: {
+            data: [],
+          },
+        };
+      }
+    }
+
+    getData();
+  }, []);
   return (
     <>
       <Head>
@@ -27,26 +51,4 @@ export default function Home({ data }: { data: any }) {
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  try {
-    // Fetch data from the serverless function
-    const response = await fetch("http://localhost:3000/api/data");
-    const data = await response.json();
-    console.log(data);
-
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        data: [],
-      },
-    };
-  }
 }
