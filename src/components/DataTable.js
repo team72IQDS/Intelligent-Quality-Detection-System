@@ -179,7 +179,6 @@ const DataTable = ({ data }) => {
                   "Shape",
                   selectedCan.ClassNames.indexOf("Dent_Can") !== -1
                 )}
-                {renderAttributeWithOval("Weight", selectedCan.correctWeight)}
                 {renderAttributeWithOval(
                   "Lid",
                   selectedCan.ClassNames.indexOf("Lid_Open") !== -1
