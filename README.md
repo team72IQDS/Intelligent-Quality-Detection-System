@@ -15,9 +15,13 @@ it only takes the picture once the sensor detects that there's even a can on the
 
 ## Running the Computer Vision Model
 Access the colab notebooks at this link via the team email - https://drive.google.com/drive/u/0/folders/1cC_HE9Kc1_s03Ttf-ihH-aN4rz2bKcEs. 
+
 There are two directories intell-qual-1 and intell-qual-2: each a dataset of cans with three classes defined: Dent_Can, Lid_Open, and Tin_Can. The best.pt files store the weights of the model that are retrived during prediction. So if a new model is trained and used, that model would need to be hosted in this directory to be acessible by the cv-model notebook. 
+
 The cv-model.ipynb file hosts all of the logic required to retrive data from the S3 bucket, run the computer vision model, and push output to DynamoDB. Run each of the cells in the cv-model notebook sequentially except for the ones which say "ONLY ON DEV". Make sure you select the runtime under "Change runtime type" to be a T4 GPU. 
+
 We built the architecture from the assumption that we would pull the data in a batch style process and clear previous runs, the logic will work only when the DynamoDB database is empty and the S3 bucket has only unpredicted files. So if you are running this process subsequently, ensure that all files starting with a "pred-" are cleared in S3 and the DynamoDB database is empty. This logic would later need to be updated so automatic fetch exists to bypass the issue of clearing these manually. 
+
 The cells that say "ONLY ON DEV" are used to train the model. You just need to change the parameters such as the epochs or the dataset and download the resulting best.pt from the training run and store it in the forementioned directory. 
 The S3 bucket and DynamoDB instance are accessible via the teams AWS account. 
 
